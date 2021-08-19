@@ -19,8 +19,8 @@ function init_lvl()
 	table.insert(game.enemies, enemy.new(400, 400, 0, "bb"))
 	table.insert(game.enemies, enemy.new(1400, 400, 0, "ca"))
 
-	table.insert(game.objects, object.new(700, 200, 70, 1))
-	table.insert(game.objects, object.new(700, 500, 100, 1))
-	table.insert(game.objects, object.new(1500, 500, 70, 1))
-	table.insert(game.objects, object.new(500, 30, 120, 1))
+	--table.insert(game.objects, object.new(700, 200, 70, 1))
+	--table.insert(game.objects, object.new(700, 500, 100, 1))
+	--table.insert(game.objects, object.new(1500, 500, 70, 1))
+	--table.insert(game.objects, object.new(500, 30, 120, 1))
 end

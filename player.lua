@@ -55,7 +55,7 @@ function new(x, y, angle, class)
 		p.thp = 6000
 		p.shp = 1200			--SHIELD
 		p.tshp = p.shp
-		p.sr = 40
+		p.sr = 50
 		p.trepair_cool = 2700			--REPAIR COOLDOWN DURATION
 		p.spot = 700		--DISTANCE FROM WHICH SHIP CAN BE SPOTTED
 		

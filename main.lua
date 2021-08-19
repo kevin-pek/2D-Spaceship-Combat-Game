@@ -1,7 +1,7 @@
 local menu = require ("menu")
 local game = require ("game")
 
-function love.load()
+function love.load()	
 	info = love.graphics.newFont(20)
 	medium = love.graphics.newFont(45)
 	header = love.graphics.newFont(75)

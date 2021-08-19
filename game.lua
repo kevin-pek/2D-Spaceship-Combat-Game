@@ -592,6 +592,7 @@ function draw()
 		end
 	end)
 
+	-- DRAWING OBJECTS
 	blur:draw(function()
 	love.graphics.push()
 		love.graphics.translate(love.graphics.getWidth() / 2 - c.x, love.graphics.getHeight() / 2 - c.y)			--TO SET CAMERA TO CENTRE OF SCREEN INSTEAD OF ORIGIN
@@ -620,6 +621,7 @@ function draw()
 	love.graphics.pop()
 	end)
 	
+	-- DRAWING HITSCAN LASERS AND BULLET PROJECTILES
 	glow:draw(function()
 	love.graphics.push()
 		love.graphics.translate(love.graphics.getWidth() / 2 - c.x, love.graphics.getHeight() / 2 - c.y)
@@ -654,8 +656,9 @@ function draw()
 	love.graphics.pop()
 	end)
 
+	-- DRAWING PLAYER
 	glow:draw(function()		--FOR PARTS WITH GLOW EFFECT
-	love.graphics.push()
+		love.graphics.push()
 		love.graphics.translate(love.graphics.getWidth() / 2 - c.x, love.graphics.getHeight() / 2 - c.y)
 		
 		if playerdead == false then						--DRAW PLAYER
@@ -699,8 +702,9 @@ function draw()
 			end
 		end
 		
+		-- DRAWING ENEMY
 		for _, b in pairs(enemies) do
-			love.graphics.circle("fill", b.aim_x, b.aim_y, 15)	--SHOW WHERE ENEMY IS AIMING DEFAULT IS THE SPAWN POINT OF THE ENEMY
+			--love.graphics.circle("fill", b.aim_x, b.aim_y, 15)	--SHOW WHERE ENEMY IS AIMING DEFAULT IS THE SPAWN POINT OF THE ENEMY
 			if b.spotted == 1 then
 				for _, v in pairs(b.parts) do						--DRAW ENEMIES
 					love.graphics.push()
@@ -744,6 +748,8 @@ function draw()
 	
 	love.graphics.pop()
 	
+	-- PLAYER UI ELEMENTS
+	--[[
 	love.graphics.setColor(0, 0, 0)
 	love.graphics.rectangle("fill", love.graphics.getWidth() / 2 - 25, love.graphics.getHeight() - 160, 50, 50)
 	if p.repair_cool > 0 then						--SHOW REPAIR BAR
@@ -797,9 +803,9 @@ function draw()
 			end
 		end
 	end
-	
+	--]]
 	end)
-	
+
 	love.graphics.push()
 		love.graphics.translate(love.graphics.getWidth() / 2 - c.x, love.graphics.getHeight() / 2 - c.y)			--TO SET CAMERA TO CENTRE OF SCREEN INSTEAD OF ORIGIN
 		
@@ -827,12 +833,14 @@ function draw()
 	love.graphics.pop()
 	
 	if p.spotted == 1 then				--SHOW DETECTED ICON												--DETECTED ICON HAS TO BE REMADE
-		love.graphics.draw(detected_icon, 300 - 32, love.graphics.getHeight() / 4)
+		--love.graphics.draw(detected_icon, 50 - 32, love.graphics.getHeight() / 4)
 		love.graphics.setFont(info)			--^^^ WIDTH OF IMAGE OF ICON
 		love.graphics.setColor(255, 255, 255)
-		love.graphics.print("Detected!", 300 - info:getWidth("Detected!") / 2, love.graphics.getHeight() / 4 + 75)
+		love.graphics.print("Detected!", 75 - info:getWidth("Detected!") / 2, 5)
 	end
 	
+	-- ENEMY RADAR THING
+	--[[
 	love.graphics.push()			--SHOWS ENEMIES OUTSIDE CAMERA VIEW
 		love.graphics.translate(love.graphics.getWidth() / 2, love.graphics.getHeight() / 2)
 		
@@ -853,7 +861,7 @@ function draw()
 		
 		love.graphics.setStencilTest()
 	love.graphics.pop()
-	
+
 	love.graphics.push()			--SHOWS CURRENT VELOCITY THROTTLE SETTINGS
 		love.graphics.translate(love.graphics.getWidth() - 50, love.graphics.getHeight() - 200)
 		
@@ -877,7 +885,7 @@ function draw()
 		love.graphics.setLineWidth(3)
 		love.graphics.line(p.t_throttle / 2 * 75, -20, p.t_throttle / 2 * 75, 20)
 	love.graphics.pop()
-	
+	--]]
 	--[[if isColliding == 1 then
 		for _, v in pairs(interpts) do
 			love.graphics.circle("line", love.mouse.getX() - c.x, love.mouse.getY() - c.y, 3)

@@ -16,6 +16,6 @@ function init_lvl()
 
 	game.c = camera.new(game.p.x, game.p.y)
 
-	table.insert(game.objects, object.new(1500, 500, 70, 1))
-	table.insert(game.objects, object.new(500, 30, 120, 1))
+	--table.insert(game.objects, object.new(1500, 500, 70, 1))
+	--table.insert(game.objects, object.new(500, 30, 120, 1))
 end
